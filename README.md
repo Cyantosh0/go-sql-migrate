@@ -1,6 +1,6 @@
-## Database migration in GO project using sql-migrate(https://github.com/rubenv/sql-migrate)
+### Database migration in GO project using sql-migrate(https://github.com/rubenv/sql-migrate)
 
-### Add new migration file
+#### Add new migration file
 > sql-migrate new table_name
 
 Inside migrations folder, a new sql file with provided table_name gets created.
@@ -8,7 +8,7 @@ Inside migrations folder, a new sql file with provided table_name gets created.
 **Run the app, and table will get migrated.**
 
 
-### Other available commands are:
+#### Other available commands are:
     down      Undo a database migration
     redo      Reapply the last migration
     status    Show migration status
