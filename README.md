@@ -1,3 +1,5 @@
+## Database migration in GO project using sql-migrate(https://github.com/rubenv/sql-migrate)
+
 ### Add new migration file
 > sql-migrate new table_name
 
