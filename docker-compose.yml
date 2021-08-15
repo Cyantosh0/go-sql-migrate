@@ -7,6 +7,7 @@ services:
             context: .
             dockerfile: ./app.Dockerfile
         restart: on-failure
+        env_file: .env
         volumes:
           - .:/go-migration
 
