@@ -9,7 +9,7 @@ endif
 
 MIGRATE=$(RUNNER)
 
-status:
+migrate-status:
 		$(MIGRATE) status
 
 migrate-up:
