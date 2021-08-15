@@ -1,6 +1,8 @@
 include .env
 export
 
+RUNNER=docker-compose exec app sql-migrate
+
 ifeq ($(p),host)
  	RUNNER=sql-migrate
 endif

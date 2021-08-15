@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+    app:
+        container_name: go_migration_app
+        build:
+            context: .
+            dockerfile: ./app.Dockerfile
+        restart: on-failure
+        volumes:
+          - .:/go-migration
+
+    database:
+        image: mysql/mysql-server:8.0.26
+        container_name: mysql_container
+        environment:
+            MYSQL_ROOT_PASSWORD: my_secret_password
+            MYSQL_DATABASE: "${DB_NAME}"
+            MYSQL_USER: "${DB_USER}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+        ports:
+            - "6033:${DB_PORT}"
+        volumes:
+            - dbdata:/var/lib/mysql
+            
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: pma_container
+        environment:
+            PMA_HOST: database
+            PMA_PORT: "${DB_PORT}"
+        restart: always
+        ports:
+            - ${PMA_PORT}:80
+
+volumes:
+    dbdata:
